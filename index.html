@@ -18,18 +18,54 @@
         </header>
 
           <section id="board">
-            <div id = "top-left" class="top left"></div>
-            <div id = "top-center" class="top center"></div>
-            <div id = "top-right" class="top right"></div>
+            <div id = "0"></div>
+            <div id = "1"></div>
+            <div id = "2"></div>
 
-            <div id = "middle-left" class="middle left"></div>
-            <div id = "middle-center" class="middle center"></div>
-            <div id = "middle-right" class="middle right"></div>
+            <div id = "3"></div>
+            <div id = "4"></div>
+            <div id = "5"></div>
 
-            <div id = "bottom-left" class="bottom left"></div>
-            <div id = "bottom-center" class="bottom center"></div>
-            <div id = "bottom-right" class="bottom right"></div>
+            <div id = "6"></div>
+            <div id = "7"></div>
+            <div id = "8"></div>
           </section>
+
+  <form id="sign-in" class="border">
+     <fieldset>
+       <legend>Sign in</legend>
+       <input type="text" name="credentials[email]" placeholder="Email">
+       <input type="password" name="credentials[password]" placeholder="Password">
+       <input type="submit" value="Sign in!">
+     </fieldset>
+   </form>
+
+    <form id="sign-up" class="border">
+    <fieldset>
+      <legend>Sign up</legend>
+      <input type="text" name="credentials[email]" placeholder="Email">
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+      <input type="submit" value="Sign up!">
+    </fieldset>
+    </form>
+
+    <form id="sign-out" class="border">
+      <fieldset>
+        <legend>Sign Out!</legend>
+        <input type="submit" value="Sign out!">
+      </fieldset>
+    </form>
+
+    <form id="change-password" class="border">
+      <fieldset>
+        <legend>Change Password!</legend>
+        <input type="password" name="passwords[old]" placeholder="Old Password">
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input type="submit" value="Change Password!">
+      </fieldset>
+    </form>
+
 
     </body>
 

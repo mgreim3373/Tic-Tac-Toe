@@ -4,17 +4,19 @@
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-const events = require('./gameEngine')
+const gameEvents = require('./gameEngine')
+const authEvents = require('./auth/event.js')
 
 $(() => {
-  $("#0").on('click', events.click)
-  $("#1").on('click', events.click)
-  $("#2").on('click', events.click)
-  $("#3").on('click', events.click)
-  $("#4").on('click', events.click)
-  $("#5").on('click', events.click)
-  $("#6").on('click', events.click)
-  $("#7").on('click', events.click)
-  $("#8").on('click', events.click)
+  authEvents.addHandlers()
+  $("#0").on('click', gameEvents.click)
+  $("#1").on('click', gameEvents.click)
+  $("#2").on('click', gameEvents.click)
+  $("#3").on('click', gameEvents.click)
+  $("#4").on('click', gameEvents.click)
+  $("#5").on('click', gameEvents.click)
+  $("#6").on('click', gameEvents.click)
+  $("#7").on('click', gameEvents.click)
+  $("#8").on('click', gameEvents.click)
 
 })

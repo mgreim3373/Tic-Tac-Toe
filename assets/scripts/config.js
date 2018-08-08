@@ -2,14 +2,14 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
-  development: 'http://localhost:4741'
+  production: 'https://aqueous-atoll-85096.herokuapp.com',
+  development: 'https://tic-tac-toe-wdi.herokuapp.com'
 }
 
 if (window.location.hostname === 'localhost') {
-  apiUrl = apiUrls.development
+  apiUrl = `https://tic-tac-toe-wdi.herokuapp.com`
 } else {
-  apiUrl = apiUrls.production
+  apiUrl = `https://aqueous-atoll-85096.herokuapp.com`
 }
 
 module.exports = {
