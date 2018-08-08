@@ -1,9 +1,18 @@
-/*const api = require()
-const ui = require() */
+/*const api = require() */
+const ui = require('./ui.js')
 
 let board = [null, null, null, null, null, null, null, null, null]
 let currentPlayer
 let nonCurrentPlayer
+
+
+let click = function (event) {
+  event.preventDefault()
+  let boxId = $(this).attr("id")
+  ui.onClick(boxId)
+  }
+
+
 
 let switchPlayer = function () {
   if (checkForWinner() === false)
@@ -14,7 +23,7 @@ let switchPlayer = function () {
   console.log("event is ", event)
   checkForWinner()
 } */
-
+/*
 let checkForWinner = function (event) {
   event.preventDefault()
   if (
@@ -50,5 +59,5 @@ let checkForWinner = function (event) {
 } */
 
 module.exports = {
-  checkForWinner
+  click
 }
