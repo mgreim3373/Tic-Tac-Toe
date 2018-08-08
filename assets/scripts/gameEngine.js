@@ -2,61 +2,67 @@
 const ui = require('./ui.js')
 
 let board = [null, null, null, null, null, null, null, null, null]
-let currentPlayer
-let nonCurrentPlayer
-
+let currentPlayer = 0
+let gamePiece = null
 
 let click = function (event) {
   event.preventDefault()
   let boxId = $(this).attr("id")
-  ui.onClick(boxId)
-  }
-
-
-
-let switchPlayer = function () {
-  if (checkForWinner() === false)
-  {event.updateCSS()}
+  updateBoardArray(boxId)
+  ui.onClick(boxId, currentPlayer)
+  checkForWinner(board)
+  switchPlayer()
 }
 
-/*$("div").on('click', function (event) {
-  console.log("event is ", event)
-  checkForWinner()
-} */
-/*
-let checkForWinner = function (event) {
-  event.preventDefault()
+
+let updateBoardArray = function(boxId) {
+  if (currentPlayer === 0) {
+    gamePiece = "1"
+  } else {
+    gamePiece = "4"
+  } board[boxId] = gamePiece
+}
+
+let switchPlayer = function () {
+  if (currentPlayer===1) {
+    currentPlayer = 0
+  } else {
+    currentPlayer = 1
+  }
+  }
+
+let checkForWinner = function (boardArr) {
   if (
-    (board[0] + board[1] + board[2] === 3) ||
-    (board[3] + board[4] + board[5] === 3) ||
-    (board[6] + board[7] + board[8] === 3) ||
-    (board[0] + board[3] + board[6] === 3) ||
-    (board[1] + board[4] + board[7] === 3) ||
-    (board[2] + board[5] + board[8] === 3) ||
-    (board[0] + board[4] + board[8] === 3) ||
-    (board[6] + board[4] + board[2] === 3)
-    )
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[1], 10) + parseInt(boardArr[2], 10)) === 3) ||
+    ((parseInt(boardArr[3], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[5], 10)) === 3) ||
+    ((parseInt(boardArr[6], 10) + parseInt(boardArr[7], 10) + parseInt(boardArr[8], 10)) === 3) ||
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[3], 10) + parseInt(boardArr[6], 10)) === 3) ||
+    ((parseInt(boardArr[1], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[7], 10)) === 3) ||
+    ((parseInt(boardArr[2], 10) + parseInt(boardArr[5], 10) + parseInt(boardArr[8], 10)) === 3) ||
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[8], 10)) === 3) ||
+    ((parseInt(boardArr[6], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[2], 10)) === 3)
+  )
 
     {
-      return "Winner: Player 1"
+       console.log('Winner1')
     }
 
   else if (
-    (board[0] + board[1] + board[2] === 12) ||
-    (board[3] + board[4] + board[5] === 12) ||
-    (board[6] + board[7] + board[8] === 12) ||
-    (board[0] + board[3] + board[6] === 12) ||
-    (board[1] + board[4] + board[7] === 12) ||
-    (board[2] + board[5] + board[8] === 12) ||
-    (board[0] + board[4] + board[8] === 12) ||
-    (board[6] + board[4] + board[2] === 12)
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[1], 10) + parseInt(boardArr[2], 10)) === 12) ||
+    ((parseInt(boardArr[3], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[5], 10)) === 12) ||
+    ((parseInt(boardArr[6], 10) + parseInt(boardArr[7], 10) + parseInt(boardArr[8], 10)) === 12) ||
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[3], 10) + parseInt(boardArr[6], 10)) === 12) ||
+    ((parseInt(boardArr[1], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[7], 10)) === 12) ||
+    ((parseInt(boardArr[2], 10) + parseInt(boardArr[5], 10) + parseInt(boardArr[8], 10)) === 12) ||
+    ((parseInt(boardArr[0], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[8], 10)) === 12) ||
+    ((parseInt(boardArr[6], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[2], 10)) === 12)
     )
 
     {
-      return "Winner: Player 2"
+      console.log("Winner2")
     }
 
-} */
+}
 
 module.exports = {
   click
