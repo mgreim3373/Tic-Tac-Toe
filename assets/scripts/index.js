@@ -7,14 +7,14 @@
 const events = require('./gameEngine')
 
 $(() => {
-  $("#top-left").on('click', events.click)
-  $("#top-center").on('click', events.click)
-  $("#top-right").on('click', events.click)
-  $("#middle-left").on('click', events.click)
-  $("#middle-center").on('click', events.click)
-  $("#middle-right").on('click', events.click)
-  $("#bottom-left").on('click', events.click)
-  $("#bottom-center").on('click', events.click)
-  $("#bottom-right").on('click', events.click)
+  $("#0").on('click', events.click)
+  $("#1").on('click', events.click)
+  $("#2").on('click', events.click)
+  $("#3").on('click', events.click)
+  $("#4").on('click', events.click)
+  $("#5").on('click', events.click)
+  $("#6").on('click', events.click)
+  $("#7").on('click', events.click)
+  $("#8").on('click', events.click)
 
 })

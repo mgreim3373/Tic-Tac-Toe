@@ -1,18 +1,20 @@
 /*const api = require() */
 const ui = require('./ui.js')
 
-let board = [null, null, null, null, null, null, null, null, null]
+let board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 let currentPlayer = 0
 let gamePiece = null
+let winner = -1
 
 let click = function (event) {
   event.preventDefault()
   let boxId = $(this).attr("id")
+  if(board[boxId] === 0 & winner < 0) {
   updateBoardArray(boxId)
   ui.onClick(boxId, currentPlayer)
   checkForWinner(board)
   switchPlayer()
-}
+}}
 
 
 let updateBoardArray = function(boxId) {
@@ -45,6 +47,7 @@ let checkForWinner = function (boardArr) {
 
     {
        console.log('Winner1')
+       winner = 0
     }
 
   else if (
@@ -60,7 +63,11 @@ let checkForWinner = function (boardArr) {
 
     {
       console.log("Winner2")
+      winner = 1
     }
+  else {
+    return "continueGame"
+  }
 
 }
 
