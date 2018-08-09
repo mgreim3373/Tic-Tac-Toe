@@ -10,10 +10,26 @@ const onGamesPlayed = function (event) {
   .then(ui.gamesPlayedSuccess)
 }
 
+const onMoveUpdate = function (event) {
+  api.moveUpdate()
+  //.then(ui.gamesPlayedSuccess)
+
+}
+
 const addHandlers = () => {
   $('#games-played').on('submit', onGamesPlayed)
+  $('#new-game').on('submit', onNewGame)
+}
+
+const onNewGame = function (event) {
+  event.preventDefault()
+
+  api.newGame()
+  //.then(ui.gamesPlayedSuccess)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onMoveUpdate,
+  onNewGame
 }
