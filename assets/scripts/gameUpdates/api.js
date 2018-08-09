@@ -1,7 +1,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const gamesPlayed = function () {
+const getGameData = function () {
   return $.ajax({
     url: config.apiUrl + '/games/',
     method: 'GET',
@@ -11,7 +11,7 @@ const gamesPlayed = function () {
   })
 }
 
-const moveUpdate = function (event) {
+const updateGameBoard = function (event) {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
     method: 'PATCH',
@@ -42,7 +42,7 @@ const newGame = function () {
 }
 
 module.exports = {
-gamesPlayed,
-moveUpdate,
+getGameData,
+updateGameBoard,
 newGame
 }

@@ -3,23 +3,19 @@
 const api = require('./api')
 const ui = require('./ui')
 
-const onGamesPlayed = function (event) {
+const onGetGameData = function (event) {
   event.preventDefault()
 
-  api.gamesPlayed()
+  api.getGameData()
   .then(ui.gamesPlayedSuccess)
 }
 
-const onMoveUpdate = function (event) {
-  api.moveUpdate()
+const onUpdateGameBoard = function (event) {
+  api.updateGameBoard()
   //.then(ui.gamesPlayedSuccess)
 
 }
 
-const addHandlers = () => {
-  $('#games-played').on('submit', onGamesPlayed)
-  $('#new-game').on('submit', onNewGame)
-}
 
 const onNewGame = function (event) {
   event.preventDefault()
@@ -27,8 +23,12 @@ const onNewGame = function (event) {
   .then(ui.onNewGameSuccess)
   }
 
+  const addHandlers = () => {
+    $('#get-game-data').on('submit', onGetGameData)
+    $('#new-game').on('submit', onNewGame)
+  }
+
 module.exports = {
   addHandlers,
-  onMoveUpdate,
-  onNewGame
+  onUpdateGameBoard
 }

@@ -1,42 +1,48 @@
 const store = require('./store.js')
 const ui = require('./ui.js')
-const gameUpdate = require('./gameUpdates/event.js')
+const updateBoardApi = require('./gameUpdates/event.js')
 
 
 let board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-let currentPlayer = 0
-let gamePiece = {value:[]}
+let currentPlayerId = 0
 let winner = -1
-let boxId = {value :[]}
+
 
 
 let click = function (event) {
   event.preventDefault()
-  boxId = $(this).attr("id")
+  $("#warning-board").addClass("hide")
+  let boxId = $(this).attr("id")
   if(board[boxId] === 0 & winner < 0) {
   store.index.value = boxId
   updateBoardArray(boxId)
-  gameUpdate.onMoveUpdate()
-  ui.onClick(boxId, currentPlayer)
+  updateBoardApi.onUpdateGameBoard()
+  ui.onClick(boxId, currentPlayerId)
   checkForWinner(board)
-  switchPlayer()
-}}
+  switchActivePlayer()
+} else {
+  $("#warning-board").removeClass("hide")
+}
+}
 
 
 let updateBoardArray = function(boxId) {
-  if (currentPlayer === 0) {
-    gamePiece = 1
+  let currentPlayerValue
+  if (currentPlayerId === 0) {
+    currentPlayerValue = 1
   } else {
-    gamePiece = 4
-  } board[boxId] = gamePiece
-    store.player.value = gamePiece
+    currentPlayerValue = 4
+  } board[boxId] = currentPlayerValue
+    store.player.value = currentPlayerValue
 }
 
-let switchPlayer = function () {
-  if (currentPlayer===1) {
-    currentPlayer = 0
+let switchActivePlayer = function () {
+  if (currentPlayerId === 1) {
+    currentPlayerId = 0
+    $("#message-board").html('Player one\'s turn')
   } else {
-    currentPlayer = 1
+    currentPlayerId = 1
+    $("#message-board").html('Player two\'s turn')
   }
   }
 
@@ -73,7 +79,7 @@ let checkForWinner = function (boardArr) {
     winner = 1
   }
   else {
-    return "continueGame"
+    console.log("continueGame")
   }
 
 }
