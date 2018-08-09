@@ -1,17 +1,20 @@
-/*const api = require() */
+const store = require('./store.js')
 const ui = require('./ui.js')
 const gameUpdate = require('./gameUpdates/event.js')
 
+
 let board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 let currentPlayer = 0
-let gamePiece = null
+let gamePiece = {value:[]}
 let winner = -1
+let boxId = {value :[]}
 
 
 let click = function (event) {
   event.preventDefault()
-  let boxId = $(this).attr("id")
+  boxId = $(this).attr("id")
   if(board[boxId] === 0 & winner < 0) {
+  store.index.value = boxId
   updateBoardArray(boxId)
   gameUpdate.onMoveUpdate()
   ui.onClick(boxId, currentPlayer)
@@ -20,14 +23,13 @@ let click = function (event) {
 }}
 
 
-
-
 let updateBoardArray = function(boxId) {
   if (currentPlayer === 0) {
     gamePiece = 1
   } else {
     gamePiece = 4
   } board[boxId] = gamePiece
+    store.player.value = gamePiece
 }
 
 let switchPlayer = function () {
@@ -64,12 +66,12 @@ let checkForWinner = function (boardArr) {
     ((parseInt(boardArr[2], 10) + parseInt(boardArr[5], 10) + parseInt(boardArr[8], 10)) === 12) ||
     ((parseInt(boardArr[0], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[8], 10)) === 12) ||
     ((parseInt(boardArr[6], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[2], 10)) === 12)
-    )
+  )
 
-    {
-      console.log("Winner2")
-      winner = 1
-    }
+  {
+    console.log("Winner2")
+    winner = 1
+  }
   else {
     return "continueGame"
   }
@@ -77,5 +79,7 @@ let checkForWinner = function (boardArr) {
 }
 
 module.exports = {
-  click
+  click,
+  updateBoardArray
+
 }

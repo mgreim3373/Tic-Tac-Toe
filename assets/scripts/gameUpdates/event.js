@@ -23,10 +23,9 @@ const addHandlers = () => {
 
 const onNewGame = function (event) {
   event.preventDefault()
-
   api.newGame()
-  //.then(ui.gamesPlayedSuccess)
-}
+  .then(ui.onNewGameSuccess)
+  }
 
 module.exports = {
   addHandlers,

@@ -8,27 +8,26 @@ const gamesPlayed = function () {
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
-})
+  })
 }
 
-const moveUpdate = function (id) {
+const moveUpdate = function (event) {
   return $.ajax({
-    url: config.apiUrl + '/games/:' + id,
+    url: config.apiUrl + `/games/${store.game.id}`,
     method: 'PATCH',
-    data: {
-      "game": {
-        "cell": {
-          "index": 0,
-          "value": "x"
-        },
-        "over": false
-      }
-    },
     headers: {
+      contentType: 'application/json',
       Authorization: 'Token token=' + store.user.token
-    }
-  }
-)}
+    },
+    data: {
+      game: {
+        cell: {
+          index: store.index.value,
+          value: store.player.value
+        },
+        over:store.gameState
+      }
+    }})}
 
 
 
