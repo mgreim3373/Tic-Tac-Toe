@@ -11,6 +11,7 @@ let click = function (event) {
   let boxId = $(this).attr("id")
   if(board[boxId] === 0 & winner < 0) {
   updateBoardArray(boxId)
+  console.log(board)
   ui.onClick(boxId, currentPlayer)
   checkForWinner(board)
   switchPlayer()
@@ -19,9 +20,9 @@ let click = function (event) {
 
 let updateBoardArray = function(boxId) {
   if (currentPlayer === 0) {
-    gamePiece = "1"
+    gamePiece = 1
   } else {
-    gamePiece = "4"
+    gamePiece = 4
   } board[boxId] = gamePiece
 }
 

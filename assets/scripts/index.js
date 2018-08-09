@@ -6,9 +6,11 @@
 // use require without a reference to ensure a file is bundled
 const gameEvents = require('./gameEngine')
 const authEvents = require('./auth/event.js')
+const gameUpdates = require('./gameUpdates/event.js')
 
 $(() => {
   authEvents.addHandlers()
+  gameUpdates.addHandlers()
   $("#0").on('click', gameEvents.click)
   $("#1").on('click', gameEvents.click)
   $("#2").on('click', gameEvents.click)
