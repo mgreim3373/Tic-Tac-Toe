@@ -9,6 +9,7 @@ const gamesPlayedSuccess = function (data) {
 }
 
 const onNewGameSuccess = function (data) {
+  $('#board').removeClass('hide')
   store.winner = -1
   store.game = data.game
   store.board = [0,0,0,0,0,0,0,0,0]

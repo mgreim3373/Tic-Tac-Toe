@@ -5,6 +5,7 @@ const store = require('../store')
 
 const signUpSuccess = function (data) {
   $('#message-board').html('sign up successful')
+  $('#sign-up').addClass('hide')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -21,11 +22,19 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   $('#message-board').html('sign in success')
+  $('#change-password').removeClass('hide')
+  $('#games-played').removeClass('hide')
+  $('#new-game').removeClass('hide')
+  $('#sign-out').removeClass('hide')
+  $('#sign-in').addClass('hide')
+  $('#sign-up').addClass('hide')
+  $('#get-game-data').removeClass('hide')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
 
 )
+  console.log(data.user)
   store.user = data.user
 }
 
@@ -39,6 +48,14 @@ const signInFailure = function (error) {
 
 const signOutSuccess = function () {
   $('#message-board').html('sign out success')
+  $('#change-password').addClass('hide')
+  $('#games-played').addClass('hide')
+  $('#new-game').addClass('hide')
+  $('#sign-out').addClass('hide')
+  $('#sign-in').removeClass('hide')
+  $('#sign-up').removeClass('hide')
+  $('#get-game-data').addClass('hide')
+  $('#board').addClass('hide')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000

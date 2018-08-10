@@ -24,10 +24,8 @@ const updateGameBoard = function (event) {
         cell: {
           index: store.index,
           value: store.player
-        },
-        over:store.gameState
-      }
-    }})}
+        }
+    }}})}
 
 
 
