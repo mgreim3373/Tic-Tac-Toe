@@ -1,57 +1,74 @@
 'use strict'
 
 const store = require('../store')
+let idGlobal
+
 
 const signUpSuccess = function (data) {
-  $('#credential-message').removeClass('hide')
+  $('#message-board').html('sign up successful')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signUpFailure ran. Error is :', error)
+  $('#message-board').html('sign up failure')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 const signInSuccess = function (data) {
-  $('#credential-message').removeClass('hide')
+  $('#message-board').html('sign in success')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+
+)
   store.user = data.user
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signInFailure ran. Error is :', error)
+  $('#message-board').html('sign in failure')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signOutSuccess ran and nothing was returned!')
+  $('#message-board').html('sign out success')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
   store.user = null
 }
 
 const signOutFailure = function (error) {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('signOutFailure ran. Error is :', error)
+  $('#message-board').html('sign out failure')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('changePasswordSuccess ran and nothing was returned!')
+  $('#message-board').html('change password success')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('changePasswordFailure ran. Error is :', error)
+  $('#message-board').html('change password failure')
+  setTimeout(function() {
+    $('#message-board').empty()
+  }, 1000
+)
 }
 
 module.exports = {
