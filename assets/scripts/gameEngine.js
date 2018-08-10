@@ -20,6 +20,8 @@ let click = function (event) {
   ui.onClick(boxId, currentPlayerId)
   checkForWinner(board)
   switchActivePlayer()
+} else if (winner > -1 ){
+  return
 } else {
   $("#warning-board").removeClass("hide")
 }
@@ -59,7 +61,7 @@ let checkForWinner = function (boardArr) {
   )
 
     {
-       console.log('Winner1')
+       $("#game-over").html('Player 1 Wins')
        winner = 0
     }
 
@@ -75,14 +77,17 @@ let checkForWinner = function (boardArr) {
   )
 
   {
-    console.log("Winner2")
+    $("#game-over").html('Player 1 Wins')
     winner = 1
   }
-  else {
-    console.log("continueGame")
+  else if ((board.includes(0)) !== true) {
+      $("#game-over").html('It\'s a tie')
+      winner = 3
+    } else {
+      return
+    }
   }
 
-}
 
 module.exports = {
   click,

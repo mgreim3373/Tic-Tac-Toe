@@ -3,10 +3,7 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signUpSuccess ran. Data is :', data)
+  $('#credential-message').removeClass('hide')
 }
 
 const signUpFailure = function (error) {
@@ -17,10 +14,7 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('signInSuccess ran. Data is :', data)
+  $('#credential-message').removeClass('hide')
   store.user = data.user
 }
 
