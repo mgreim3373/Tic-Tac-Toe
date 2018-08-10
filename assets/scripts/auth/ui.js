@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('../store')
-let idGlobal
 
 
 const signUpSuccess = function (data) {

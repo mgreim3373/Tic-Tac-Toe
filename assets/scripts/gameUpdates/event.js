@@ -5,7 +5,6 @@ const ui = require('./ui')
 
 const onGetGameData = function (event) {
   event.preventDefault()
-
   api.getGameData()
   .then(ui.gamesPlayedSuccess)
 }

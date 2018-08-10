@@ -22,8 +22,8 @@ const updateGameBoard = function (event) {
     data: {
       game: {
         cell: {
-          index: store.index.value,
-          value: store.player.value
+          index: store.index,
+          value: store.player
         },
         over:store.gameState
       }

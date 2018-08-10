@@ -3,47 +3,45 @@ const ui = require('./ui.js')
 const updateBoardApi = require('./gameUpdates/event.js')
 
 
-let board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-let currentPlayerId = 0
-let winner = -1
+store.board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+store.currentPlayerId = 0
+store.winner = -1
 
-
-
-let click = function (event) {
+const click = function (event) {
   event.preventDefault()
-  $("#warning-board").addClass("hide")
-  let boxId = $(this).attr("id")
-  if(board[boxId] === 0 & winner < 0) {
-  store.index.value = boxId
-  updateBoardArray(boxId)
-  updateBoardApi.onUpdateGameBoard()
-  ui.onClick(boxId, currentPlayerId)
-  checkForWinner(board)
-  switchActivePlayer()
-} else if (winner > -1 ){
-  return
-} else {
-  $("#warning-board").removeClass("hide")
+  console.log(store.board)
+  $('#warning-board').addClass('hide')
+  let boxId = $(this).attr('id')
+  if (store.board[boxId] === 0 && store.winner < 0) {
+    store.index = boxId
+    updateBoardArray(boxId)
+    updateBoardApi.onUpdateGameBoard()
+    ui.onClick(boxId, store.currentPlayerId)
+    checkForWinner(store.board)
+    switchActivePlayer()
+  } else if (store.winner > -1) {
+    return
+  } else {
+    $('#warning-board').removeClass('hide')
+  }
 }
-}
-
 
 let updateBoardArray = function(boxId) {
   let currentPlayerValue
-  if (currentPlayerId === 0) {
+  if (store.currentPlayerId === 0) {
     currentPlayerValue = 1
   } else {
     currentPlayerValue = 4
-  } board[boxId] = currentPlayerValue
-    store.player.value = currentPlayerValue
+  } store.board[boxId] = currentPlayerValue
+    store.player = currentPlayerValue
 }
 
 let switchActivePlayer = function () {
-  if (currentPlayerId === 1) {
-    currentPlayerId = 0
+  if (store.currentPlayerId === 1) {
+    store.currentPlayerId = 0
     $("#message-board").html('Player one\'s turn')
   } else {
-    currentPlayerId = 1
+    store.currentPlayerId = 1
     $("#message-board").html('Player two\'s turn')
   }
   }
@@ -61,8 +59,9 @@ let checkForWinner = function (boardArr) {
   )
 
     {
+       $("#message-board").addClass('hide')
        $("#game-over").html('Player 1 Wins')
-       winner = 0
+      store.winner = 0
     }
 
   else if (
@@ -77,12 +76,14 @@ let checkForWinner = function (boardArr) {
   )
 
   {
+    $("#message-board").addClass('hide')
     $("#game-over").html('Player 1 Wins')
-    winner = 1
+      store.winner = 1
   }
-  else if ((board.includes(0)) !== true) {
+  else if ((store.board.includes(0)) !== true) {
+      $("#message-board").addClass('hide')
       $("#game-over").html('It\'s a tie')
-      winner = 3
+      store.winner = 3
     } else {
       return
     }
