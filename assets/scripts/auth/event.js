@@ -1,6 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
+const store = require('../store')
 
 const api = require('./api')
 const ui = require('./ui')
@@ -10,9 +11,21 @@ const onSignUp = function (event) {
   console.log('sign up ran!')
 
   const data = getFormFields(this)
+  store.credentials = data
+  console.log(store)
+
   api.signUp(data)
-    .then(ui.signUpSuccess)
+    .then(onSignUpIn)
     .catch(ui.signUpFailure)
+}
+
+const onSignUpIn = function (event) {
+  console.log('sign in ran!')
+  delete store.credentials.password_confirmation
+  let data = store.credentials
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignIn = function (event) {

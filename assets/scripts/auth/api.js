@@ -10,6 +10,17 @@ const signUp = function (data) {
     data
   })
 }
+const signInUp = function (data) {
+let uData = store.userData
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    userData
+  })
+}
+
+
+
 
 const signIn = function (data) {
   return $.ajax({
@@ -41,9 +52,14 @@ const changePassword = function (data) {
   })
 }
 
+const signUpInDelete = function() {
+  delete store.userData.credentials.password_confirmation
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  signUpInDelete
 }
