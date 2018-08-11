@@ -2,6 +2,7 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const getFormFields = require(`../../../lib/get-form-fields`)
 
 const onGetGameData = function (event) {
   event.preventDefault()
@@ -11,7 +12,6 @@ const onGetGameData = function (event) {
 
 const onUpdateGameBoard = function (event) {
   api.updateGameBoard()
-  //.then(ui.gamesPlayedSuccess)
 
 }
 
@@ -22,9 +22,19 @@ const onNewGame = function (event) {
   .then(ui.onNewGameSuccess)
   }
 
+const onResumeGame = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const id = data.id
+    api.resumeGame(id)
+    .then(ui.resumeGameSuccess)
+
+}
+
   const addHandlers = () => {
     $('#get-game-data').on('submit', onGetGameData)
     $('#new-game').on('submit', onNewGame)
+    $('#resume-game').on('submit', onResumeGame)
   }
 
 module.exports = {

@@ -2,6 +2,7 @@
 const store = require('../store')
 
 const gamesPlayedSuccess = function (data) {
+  console.log(data.games)
   $("#games-played").html(data.games.length)
 
 
@@ -31,8 +32,15 @@ const clearBoard = function() {
   $("#message-board").html('Player one\'s turn')
 }
 
+const resumeGameSuccess = function (data) {
+  console.log('successS')
+  console.log(data)
+  console.log(data.game.cells)
+}
+
 
 module.exports = {
   gamesPlayedSuccess,
-  onNewGameSuccess
+  onNewGameSuccess,
+  resumeGameSuccess
 }

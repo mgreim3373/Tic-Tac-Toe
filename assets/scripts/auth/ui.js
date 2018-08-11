@@ -29,6 +29,7 @@ const signInSuccess = function (data) {
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
   $('#get-game-data').removeClass('hide')
+  $('#resume-game').removeClass('hide')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
