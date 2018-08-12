@@ -40,7 +40,6 @@ const newGame = function () {
 }
 
 const resumeGame = function (id) {
-  console.log(id)
   return $.ajax({
     url: config.apiUrl + `/games/${id}`,
     method: 'GET',

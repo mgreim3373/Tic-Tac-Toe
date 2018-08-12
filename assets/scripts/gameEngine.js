@@ -3,16 +3,18 @@ const ui = require('./ui.js')
 const updateBoardApi = require('./gameUpdates/event.js')
 
 
-store.board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+store.board = ['', '', '', '', '', '', '', '', '']
 store.currentPlayerId = 0
 store.winner = -1
 
 const click = function (event) {
   event.preventDefault()
+  console.log(store.winner)
   console.log(store.board)
+  console.log('player',store.currentPlayerId)
   $('#warning-board').addClass('hide')
   let boxId = $(this).attr('id')
-  if (store.board[boxId] === 0 && store.winner < 0) {
+  if (store.board[boxId] === '' && store.winner < 0) {
     store.index = boxId
     updateBoardArray(boxId)
     updateBoardApi.onUpdateGameBoard()
@@ -39,9 +41,11 @@ let updateBoardArray = function(boxId) {
 let switchActivePlayer = function () {
   if (store.currentPlayerId === 1) {
     store.currentPlayerId = 0
+    console.log("player 1 turn")
     $("#message-board").html('Player one\'s turn')
   } else {
     store.currentPlayerId = 1
+    console.log("player 2 turn")
     $("#message-board").html('Player two\'s turn')
   }
   }
@@ -80,7 +84,7 @@ let checkForWinner = function (boardArr) {
     $("#game-over").html('Player 1 Wins')
       store.winner = 1
   }
-  else if ((store.board.includes(0)) !== true) {
+  else if ((store.board.includes('')) !== true) {
       $("#message-board").addClass('hide')
       $("#game-over").html('It\'s a tie')
       store.winner = 3

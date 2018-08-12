@@ -13,9 +13,11 @@ const onNewGameSuccess = function (data) {
   $('#board').removeClass('hide')
   store.winner = -1
   store.game = data.game
-  store.board = [0,0,0,0,0,0,0,0,0]
+  store.board = ['','','','','','','','','']
   store.currentPlayerId = 0
+  console.log(store.board)
   clearBoard()
+  $("#message-board").html('Player one\'s turn')
 }
 
 const clearBoard = function() {
@@ -29,15 +31,35 @@ const clearBoard = function() {
   $("#7").empty()
   $("#8").empty()
   $("#game-over").empty()
-  $("#message-board").html('Player one\'s turn')
+  $("#message-board").empty()
 }
 
 const resumeGameSuccess = function (data) {
-  console.log('successS')
-  console.log(data)
-  console.log(data.game.cells)
+  clearBoard()
+  store.winner = -1
+  store.currentPlayerId = 0
+  store.board = data.game.cells
+  console.log(store.board)
+  restoreGameBoard(store.board)
+  console.log('gameboard', store.board)
+
 }
 
+
+const restoreGameBoard = function (boardArr) {
+  let i = -1
+  boardArr.forEach(function(gameSpace){
+    i += 1
+  if (gameSpace == 1){
+    console.log('#'+i)
+
+    $('#'+i).html('x')
+    }
+      else if (gameSpace == 4) {
+      $('#'+i).html('o')
+    }
+  })
+  }
 
 module.exports = {
   gamesPlayedSuccess,
