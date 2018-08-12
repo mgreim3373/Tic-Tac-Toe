@@ -11,7 +11,7 @@ const click = function (event) {
   event.preventDefault()
   console.log(store.winner)
   console.log(store.board)
-  console.log('player',store.currentPlayerId)
+  console.log('player', store.currentPlayerId)
   $('#warning-board').addClass('hide')
   let boxId = $(this).attr('id')
   if (store.board[boxId] === '' && store.winner < 0) {

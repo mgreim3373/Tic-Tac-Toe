@@ -37,11 +37,11 @@ const clearBoard = function() {
 const resumeGameSuccess = function (data) {
   clearBoard()
   store.winner = -1
-  store.currentPlayerId = 0
+  store.game = data.game
   store.board = data.game.cells
+  store.currentPlayerId = 0
   console.log(store.board)
   restoreGameBoard(store.board)
-  console.log('gameboard', store.board)
 
 }
 
