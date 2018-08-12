@@ -18,6 +18,7 @@ const onNewGameSuccess = function (data) {
   console.log(store.board)
   clearBoard()
   $("#message-board").html('Player one\'s turn')
+  $("#game-code").html('Game Id:' + store.game.id)
 }
 
 const clearBoard = function() {
@@ -42,6 +43,7 @@ const resumeGameSuccess = function (data) {
   store.currentPlayerId = 0
   console.log(store.board)
   restoreGameBoard(store.board)
+  $("#game-code").html('Game Id:' + store.game.id)
 
 }
 
