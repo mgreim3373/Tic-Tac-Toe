@@ -1,6 +1,36 @@
 'use strict'
 const store = require('../store')
 
+const options = function () {
+    $('#get-game-data').removeClass('hide')
+    $('#change-password').removeClass('hide')
+    $('#new-game').addClass('hide')
+    $('#sign-out').addClass('hide')
+    $('#sign-in').addClass('hide')
+    $('#sign-up').addClass('hide')
+    $('#resume-game').addClass('hide')
+    $('#options').addClass('hide')
+    $('#back').removeClass('hide')
+
+
+}
+
+const back = function () {
+    $('#board').addClass('hide')
+    $('#options').removeClass('hide')
+    $('#get-game-data').addClass('hide')
+    $('#change-password').addClass('hide')
+    $('#new-game').removeClass('hide')
+    $('#sign-out').removeClass('hide')
+    $('#sign-in').addClass('hide')
+    $('#sign-up').addClass('hide')
+    $('#resume-game').removeClass('hide')
+    $('#back').addClass('hide')
+    $('#games-played').empty()
+    $("#message-board").empty()
+
+}
+
 const gamesPlayedSuccess = function (data) {
   console.log(data.games)
   $("#games-played").html(data.games.length)
@@ -18,8 +48,13 @@ const onNewGameSuccess = function (data) {
   console.log(store.board)
   clearBoard()
   $("#message-board").html('Player one\'s turn')
-  $("#game-code").html('Game Id:' + store.game.id)
+  $("#game-code").html('Current Game Id:' + store.game.id)
   $("#message-board").removeClass('hide')
+  $('#sign-out').addClass('hide')
+  $('#resume-game').addClass('hide')
+  $('#options').addClass('hide')
+  $('#back').removeClass('hide')
+
 }
 
 const clearBoard = function() {
@@ -44,11 +79,16 @@ const resumeGameSuccess = function (data) {
   store.currentPlayerId = 0
   console.log(store.board)
   restoreGameBoard(store.board)
-  $("#game-code").html('Game Id:' + store.game.id)
+  $("#game-code").html('Current Game Id:' + store.game.id)
   store.checkForWinner(store.board)
   whoseTurn(store.board)
   $('#board').removeClass('hide')
   $('#resume-game input[name="id"]').val('')
+  $('#sign-out').addClass('hide')
+  $('#resume-game').addClass('hide')
+  $('#options').addClass('hide')
+  $('#back').removeClass('hide')
+
 
 }
 
@@ -94,5 +134,7 @@ const restoreGameBoard = function (boardArr) {
 module.exports = {
   gamesPlayedSuccess,
   onNewGameSuccess,
-  resumeGameSuccess
+  resumeGameSuccess,
+  options,
+  back
 }

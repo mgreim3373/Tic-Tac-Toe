@@ -2,11 +2,6 @@ const store = require('./store.js')
 const ui = require('./ui.js')
 const updateBoardApi = require('./gameUpdates/event.js')
 
-
-store.board = ['', '', '', '', '', '', '', '', '']
-store.currentPlayerId = 0
-store.winner = -1
-
 const click = function (event) {
   event.preventDefault()
   console.log(store.winner)

@@ -15,6 +15,17 @@ const onUpdateGameBoard = function (event) {
 
 }
 
+const onOptions = function (event) {
+  event.preventDefault()
+  ui.options()
+
+}
+
+const onback = function (event) {
+  event.preventDefault()
+  ui.back()
+
+}
 
 const onNewGame = function (event) {
   event.preventDefault()
@@ -35,6 +46,9 @@ const onResumeGame = function (event) {
     $('#get-game-data').on('submit', onGetGameData)
     $('#new-game').on('submit', onNewGame)
     $('#resume-game').on('submit', onResumeGame)
+    $('#options').on('submit', onOptions)
+    $('#back').on('submit', onback)
+
   }
 
 module.exports = {

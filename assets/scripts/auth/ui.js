@@ -22,14 +22,14 @@ const signUpFailure = function (error) {
 
 const signInSuccess = function (data) {
   $('#message-board').html('sign in success')
-  $('#change-password').removeClass('hide')
   $('#games-played').removeClass('hide')
   $('#new-game').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
-  $('#get-game-data').removeClass('hide')
   $('#resume-game').removeClass('hide')
+  $('#options').removeClass('hide')
+
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
