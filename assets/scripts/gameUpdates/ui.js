@@ -44,6 +44,8 @@ const resumeGameSuccess = function (data) {
   console.log(store.board)
   restoreGameBoard(store.board)
   $("#game-code").html('Game Id:' + store.game.id)
+  store.checkForWinner(store.board)
+  whoseTurn(store.board)
 
 }
 
@@ -62,6 +64,29 @@ const restoreGameBoard = function (boardArr) {
     }
   })
   }
+
+  const whoseTurn = function (boardArr) {
+    let playerOneTotal = 0
+    let playerTwoTotal = 0
+    for (let i = 0; i < boardArr.length; i++) {
+      if(parseInt(boardArr[i]) === 1) {
+        playerOneTotal += 1
+      }
+        else if (parseInt(boardArr[i]) === 4) {
+          playerTwoTotal += 1
+        }
+      }
+
+      if (playerOneTotal > playerTwoTotal) {
+        store.currentPlayerId = 1
+        $("#message-board").html('Player two\'s turn')
+      } else {
+        store.currentPlayerId = 0
+        $("#message-board").html('Player one\'s turn')
+      } console.log("p1", playerOneTotal)
+      console.log("p2", playerTwoTotal)
+      console.log('b', store.currentPlayerId)
+    }
 
 module.exports = {
   gamesPlayedSuccess,
