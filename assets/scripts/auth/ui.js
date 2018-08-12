@@ -64,6 +64,7 @@ const signOutSuccess = function () {
   $('#sign-up input[name="credentials[password]"]').val('')
   $('#sign-up input[name="credentials[email]"]').val('')
   $('#sign-up input[name="credentials[password_confirmation]"]').val('')
+  $('#options').addClass('hide')
 
   setTimeout(function() {
     $('#message-board').empty()
