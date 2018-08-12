@@ -90,7 +90,7 @@ let checkForWinner = function (boardArr) {
       $("#game-over").html('It\'s a tie')
       store.winner = 3
     } else {
-      return
+      $("#message-board").removeClass('hide')
     }
   }
 

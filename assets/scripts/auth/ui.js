@@ -57,6 +57,8 @@ const signOutSuccess = function () {
   $('#sign-up').removeClass('hide')
   $('#get-game-data').addClass('hide')
   $('#board').addClass('hide')
+  $('#resume-game').addClass('hide')
+  $('#game-code').addClass('hide')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000

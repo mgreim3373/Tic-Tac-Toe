@@ -19,6 +19,7 @@ const onNewGameSuccess = function (data) {
   clearBoard()
   $("#message-board").html('Player one\'s turn')
   $("#game-code").html('Game Id:' + store.game.id)
+  $("#message-board").removeClass('hide')
 }
 
 const clearBoard = function() {
@@ -46,6 +47,7 @@ const resumeGameSuccess = function (data) {
   $("#game-code").html('Game Id:' + store.game.id)
   store.checkForWinner(store.board)
   whoseTurn(store.board)
+  $('#board').removeClass('hide')
 
 }
 
