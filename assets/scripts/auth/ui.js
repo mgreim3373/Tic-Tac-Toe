@@ -59,6 +59,12 @@ const signOutSuccess = function () {
   $('#board').addClass('hide')
   $('#resume-game').addClass('hide')
   $('#game-code').addClass('hide')
+  $('#sign-in input[name="credentials[password]"]').val('')
+  $('#sign-in input[name="credentials[email]"]').val('')
+  $('#sign-up input[name="credentials[password]"]').val('')
+  $('#sign-up input[name="credentials[email]"]').val('')
+  $('#sign-up input[name="credentials[password_confirmation]"]').val('')
+
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -80,6 +86,8 @@ const changePasswordSuccess = function () {
     $('#message-board').empty()
   }, 1000
 )
+$('#change-password input[name="passwords[old]"]').val('')
+$('#change-password input[name="passwords[new]"]').val('')
 }
 
 const changePasswordFailure = function (error) {

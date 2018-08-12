@@ -48,6 +48,7 @@ const resumeGameSuccess = function (data) {
   store.checkForWinner(store.board)
   whoseTurn(store.board)
   $('#board').removeClass('hide')
+  $('#resume-game input[name="id"]').val('')
 
 }
 
