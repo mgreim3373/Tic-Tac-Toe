@@ -1,7 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-body {
+#body {
   margin: 0 auto;
   width: 60%;
 }
@@ -10,6 +10,79 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
+#signInButton{
+  background: coral;
+  color: white;
+}
+
+#signInButton:hover {
+  background: red;
+}
+
+.signInModal{
+  display: none;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: blue;
+}
+
+.signUpModal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: red;
+}
+
+.signInModalContent {
+  background-color: white;
+  margin: 20% auto;
+  padding: 20px;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,.3), 0 7px 20px 0 rgba(0,0,0,.3);
+}
+
+.signUpModalContent{
+  background-color: white;
+  margin: 20% auto;
+  padding: 20px;
+  width: 60%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,.3), 0 7px 20px 0 rgba(0,0,0,.3);
+}
+
+.close {
+color: red;
+float: right;
+font-size: 30px;
+}
+
+.close:hover, .closeBtn:focus {
+  color:black;
+  cursor: pointer;
+}
+
+
+
+#signUpButton{
+  background: coral;
+  color: white;
+}
+
+#signUpButton:hover {
+background: red;
+}
+
 
 #board div {
   display: flex;

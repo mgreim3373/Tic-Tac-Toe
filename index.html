@@ -13,6 +13,9 @@
 
     <body>
 
+      <div id="backDrop"></div>
+
+      <section id=body>
         <header>
           <h1>Tic Tac Toe!</h1>
         </header>
@@ -44,6 +47,13 @@
             <div id = "8"></div>
           </section>
 
+          <button id="signInButton" type="button">Sign In</button>
+
+          <button id="signUpButton" type="button">Sign Up</button>
+
+<div class="signInModal">
+  <div class="signInModalContent">
+    <span class="close">&times;</span>
   <form id="sign-in" class="border">
 
        <input type="text" name="credentials[email]" placeholder="Email">
@@ -51,7 +61,12 @@
        <input type="submit" value="Sign In">
 
    </form>
+ </div>
+ </div>
 
+   <div class="signUpModal">
+<div class="signUpModalContent">
+  <span class="close">&times;</span>
     <form id="sign-up" class="border">
 
 
@@ -61,6 +76,8 @@
       <input type="submit" value="Sign Up">
 
     </form>
+  </div>
+  </div>
 
     <form id="get-game-data" class="border hide">
 
@@ -111,8 +128,7 @@
         <input type="submit" value="Back">
 
     </form>
-
-
+</section>
     </body>
 
 </html>

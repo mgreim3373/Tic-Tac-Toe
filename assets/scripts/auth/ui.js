@@ -89,6 +89,7 @@ const changePasswordSuccess = function () {
 )
 $('#change-password input[name="passwords[old]"]').val('')
 $('#change-password input[name="passwords[new]"]').val('')
+
 }
 
 const changePasswordFailure = function (error) {
@@ -99,6 +100,20 @@ const changePasswordFailure = function (error) {
 )
 }
 
+const signUpModal = function () {
+  $('.signUpModal').css('display', 'block')
+}
+
+const signInModal = function () {
+  $('.signInModal').css('display', 'block')
+}
+
+const closeModal = function () {
+  $('.signInModal').css('display', 'none')
+  $('.signUpModal').css('display', 'none')
+}
+
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -107,5 +122,8 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signUpModal,
+  signInModal,
+  closeModal
 }
