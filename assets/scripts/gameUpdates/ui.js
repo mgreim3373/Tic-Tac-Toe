@@ -27,7 +27,8 @@ const back = function () {
     $('#resume-game').removeClass('hide')
     $('#back').addClass('hide')
     $('#games-played').empty()
-    $("#message-board").empty()
+    $('#message-board').addClass('hide')
+    $('#game-over').addClass('hide')
 
 }
 
@@ -88,6 +89,7 @@ const resumeGameSuccess = function (data) {
   $('#resume-game').addClass('hide')
   $('#options').addClass('hide')
   $('#back').removeClass('hide')
+  $('#game-over').removeClass('hide')
 
 
 }
