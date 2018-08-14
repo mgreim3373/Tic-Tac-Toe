@@ -1,7 +1,22 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Tic-Tac-Toe
 
+Instalation:
+1. Visit this repository https://github.com/mgreim3373/Tic-Tac-Toe.
+2. Fork and clone a copy of the files to your local machine.
+3. Git add, commit and push as needed for developement and testing.
 
+List of Technologies Used:
+1. Javascript
+2. jQuery
+3. AJAX
+4. CSS
+5. HTML
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+Planning and Creation Process:
+This project was started with the goal of creating a single page application game run by a custom game engine that would be able to interact with an API using ajax. The project began by creating wireframes and user stories to ensure that the project met requirements. I then built out the game engine in javascript and connected it to the API using AJAX. The next stage of the project was to build out the game board in HTML and CSS, and link it to the game logic making use of jQuery for DOM manipulation and event handling. Finally, styling was applied using a CSS.
+
+Unsolved Issues:
+I plan on updating this project in the future with added styling. I ran into some issues using a combination of flex box and bootstrap. I plan on restyling the project using only flex box.
+
+Wireframes and User Stories:
+https://github.com/mgreim3373/Tic-Tac-Toe/blob/44af7639cd6b2c07aa46b4bc50012c01f9b9060e/Wireframes.jpg
