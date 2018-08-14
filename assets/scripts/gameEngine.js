@@ -4,9 +4,7 @@ const updateBoardApi = require('./gameUpdates/event.js')
 
 const click = function (event) {
   event.preventDefault()
-  console.log(store.winner)
-  console.log(store.board)
-  console.log('player', store.currentPlayerId)
+
   $('#warning-board').addClass('hide')
   let boxId = $(this).attr('id')
   if (store.board[boxId] === '' && store.winner < 0) {
@@ -46,7 +44,7 @@ let switchActivePlayer = function () {
   }
 
 let checkForWinner = function (boardArr) {
-  console.log("hsdfds")
+
   if (
     ((parseInt(boardArr[0], 10) + parseInt(boardArr[1], 10) + parseInt(boardArr[2], 10)) === 3) ||
     ((parseInt(boardArr[3], 10) + parseInt(boardArr[4], 10) + parseInt(boardArr[5], 10)) === 3) ||

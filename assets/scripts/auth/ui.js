@@ -35,7 +35,7 @@ const signInSuccess = function (data) {
   }, 1000
 
 )
-  console.log(data.user)
+
   store.user = data.user
 }
 

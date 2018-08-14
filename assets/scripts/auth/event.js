@@ -8,11 +8,11 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
+
 
   const data = getFormFields(this)
   store.credentials = data
-  console.log(store)
+
 
   api.signUp(data)
     .then(onSignUpIn)
@@ -20,7 +20,7 @@ const onSignUp = function (event) {
 }
 
 const onSignUpIn = function (event) {
-  console.log('sign in ran!')
+
   delete store.credentials.password_confirmation
   let data = store.credentials
   api.signIn(data)
@@ -30,7 +30,7 @@ const onSignUpIn = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
+
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -40,7 +40,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out ran')
+
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -49,7 +49,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
+
 
   const data = getFormFields(this)
   api.changePassword(data)

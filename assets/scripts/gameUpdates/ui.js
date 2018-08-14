@@ -34,7 +34,7 @@ const back = function () {
 }
 
 const gamesPlayedSuccess = function (data) {
-  console.log(data.games)
+
   $("#games-played").html(data.games.length)
 
 
@@ -47,7 +47,7 @@ const onNewGameSuccess = function (data) {
   store.game = data.game
   store.board = ['','','','','','','','','']
   store.currentPlayerId = 0
-  console.log(store.board)
+
   clearBoard()
   $("#message-board").html('Player one\'s turn')
   $("#game-code").html('Current Game Id:' + store.game.id)
@@ -80,7 +80,7 @@ const resumeGameSuccess = function (data) {
   store.game = data.game
   store.board = data.game.cells
   store.currentPlayerId = 0
-  console.log(store.board)
+
   restoreGameBoard(store.board)
   $("#game-code").html('Current Game Id:' + store.game.id)
   store.checkForWinner(store.board)
@@ -105,7 +105,7 @@ const restoreGameBoard = function (boardArr) {
   boardArr.forEach(function(gameSpace){
     i += 1
   if (gameSpace == 1){
-    console.log('#'+i)
+
 
     $('#'+i).html('x')
     }
@@ -133,9 +133,7 @@ const restoreGameBoard = function (boardArr) {
       } else {
         store.currentPlayerId = 0
         $("#message-board").html('Player one\'s turn')
-      } console.log("p1", playerOneTotal)
-      console.log("p2", playerTwoTotal)
-      console.log('b', store.currentPlayerId)
+      }
     }
 
 module.exports = {
