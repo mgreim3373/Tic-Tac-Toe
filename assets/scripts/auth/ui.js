@@ -58,7 +58,7 @@ const signOutSuccess = function () {
   $('#get-game-data').addClass('hide')
   $('#board').addClass('hide')
   $('#resume-game').addClass('hide')
-  $('#game-code').addClass('hide')
+  $('#game-code').empty()
   $('#sign-in input[name="credentials[password]"]').val('')
   $('#sign-in input[name="credentials[email]"]').val('')
   $('#sign-up input[name="credentials[password]"]').val('')

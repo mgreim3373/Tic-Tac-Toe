@@ -34,13 +34,13 @@ let updateBoardArray = function(boxId) {
 }
 
 let switchActivePlayer = function () {
-  if (store.currentPlayerId === 1) {
+  if (store.winner > -1) {
+    $("#message-board").empty()
+  } else if (store.currentPlayerId === 1) {
     store.currentPlayerId = 0
-    console.log("player 1 turn")
     $("#message-board").html('Player one\'s turn')
   } else {
     store.currentPlayerId = 1
-    console.log("player 2 turn")
     $("#message-board").html('Player two\'s turn')
   }
   }
@@ -59,7 +59,7 @@ let checkForWinner = function (boardArr) {
   )
 
     {
-       $("#message-board").addClass('hide')
+       $("#message-board").empty()
        $("#game-over").html('Player 1 Wins')
       store.winner = 0
     }
@@ -76,12 +76,12 @@ let checkForWinner = function (boardArr) {
   )
 
   {
-    $("#message-board").addClass('hide')
+    $("#message-board").empty()
     $("#game-over").html('Player 1 Wins')
       store.winner = 1
   }
   else if ((store.board.includes('')) !== true) {
-      $("#message-board").addClass('hide')
+      $("#message-board").empty()
       $("#game-over").html('It\'s a tie')
       store.winner = 3
     } else {

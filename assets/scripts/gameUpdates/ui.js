@@ -27,8 +27,9 @@ const back = function () {
     $('#resume-game').removeClass('hide')
     $('#back').addClass('hide')
     $('#games-played').empty()
-    $('#message-board').addClass('hide')
-    $('#game-over').addClass('hide')
+    $('#message-board').empty()
+    $('#game-over').empty()
+    $("#warning-board").addClass('hide')
 
 }
 
@@ -55,6 +56,7 @@ const onNewGameSuccess = function (data) {
   $('#resume-game').addClass('hide')
   $('#options').addClass('hide')
   $('#back').removeClass('hide')
+  $("#warning-board").addClass('hide')
 
 }
 
@@ -90,6 +92,9 @@ const resumeGameSuccess = function (data) {
   $('#options').addClass('hide')
   $('#back').removeClass('hide')
   $('#game-over').removeClass('hide')
+  if (store.winner > -1) {
+    $("#message-board").empty()
+  }
 
 
 }
