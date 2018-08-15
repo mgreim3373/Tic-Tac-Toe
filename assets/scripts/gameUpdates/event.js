@@ -7,49 +7,44 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const onGetGameData = function (event) {
   event.preventDefault()
   api.getGameData()
-  .then(ui.gamesPlayedSuccess)
+    .then(ui.gamesPlayedSuccess)
 }
 
 const onUpdateGameBoard = function (event) {
   api.updateGameBoard()
-
 }
 
 const onOptions = function (event) {
   event.preventDefault()
   ui.options()
-
 }
 
-const onback = function (event) {
+const onBack = function (event) {
   event.preventDefault()
   ui.back()
-
 }
 
 const onNewGame = function (event) {
   event.preventDefault()
   api.newGame()
-  .then(ui.onNewGameSuccess)
-  }
+    .then(ui.onNewGameSuccess)
+}
 
 const onResumeGame = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   const id = data.id
-    api.resumeGame(id)
+  api.resumeGame(id)
     .then(ui.resumeGameSuccess)
-
 }
 
-  const addHandlers = () => {
-    $('#get-game-data').on('submit', onGetGameData)
-    $('#new-game').on('submit', onNewGame)
-    $('#resume-game').on('submit', onResumeGame)
-    $('#options').on('submit', onOptions)
-    $('#back').on('submit', onback)
-
-  }
+const addHandlers = () => {
+  $('#get-game-data').on('submit', onGetGameData)
+  $('#new-game').on('submit', onNewGame)
+  $('#resume-game').on('submit', onResumeGame)
+  $('#options').on('submit', onOptions)
+  $('#back').on('submit', onBack)
+}
 
 module.exports = {
   addHandlers,

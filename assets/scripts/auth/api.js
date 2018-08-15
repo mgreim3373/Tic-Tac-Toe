@@ -19,9 +19,6 @@ let uData = store.userData
   })
 }
 
-
-
-
 const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',

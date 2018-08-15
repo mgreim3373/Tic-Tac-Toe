@@ -2,18 +2,11 @@
 
 const store = require('../store')
 
-
-const signUpSuccess = function (data) {
-  $('#message-board').html('sign up successful')
-  $('#sign-up').addClass('hide')
-  setTimeout(function() {
-    $('#message-board').empty()
-  }, 1000
-)
-}
-
 const signUpFailure = function (error) {
-  $('#message-board').html('sign up failure')
+  $('#sign-up input[name="credentials[password]"]').val('')
+  $('#sign-up input[name="credentials[email]"]').val('')
+  $('#sign-up input[name="credentials[password_confirmation]"]').val('')
+  $('#message-board').html('Sign Up Failure')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -21,26 +14,32 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message-board').html('sign in success')
-  $('#games-played').removeClass('hide')
+  $('#message-board').html('Sign In Success')
+  $('#game-code').empty()
+  $('#warning-board').empty()
+  $('#games-played').empty()
   $('#new-game').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
   $('#resume-game').removeClass('hide')
   $('#options').removeClass('hide')
-
+  $('#change-password').addClass('hide')
+  $('#get-game-data').addClass('hide')
+  $('#board').addClass('hide')
+  $('#game-over').empty()
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
 
 )
-
   store.user = data.user
 }
 
 const signInFailure = function (error) {
-  $('#message-board').html('sign in failure')
+  $('#sign-in input[name="credentials[password]"]').val('')
+  $('#sign-in input[name="credentials[email]"]').val('')
+  $('#message-board').html('Sign In Failure')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -48,9 +47,9 @@ const signInFailure = function (error) {
 }
 
 const signOutSuccess = function () {
-  $('#message-board').html('sign out success')
+  $('#message-board').html('Sign Out Success')
   $('#change-password').addClass('hide')
-  $('#games-played').addClass('hide')
+  $('#games-played').empty()
   $('#new-game').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#sign-in').removeClass('hide')
@@ -65,8 +64,9 @@ const signOutSuccess = function () {
   $('#sign-up input[name="credentials[email]"]').val('')
   $('#sign-up input[name="credentials[password_confirmation]"]').val('')
   $('#options').addClass('hide')
-
-  setTimeout(function() {
+  $('#warning-board').empty()
+  $('#game-over').empty()
+  setTimeout(function () {
     $('#message-board').empty()
   }, 1000
 )
@@ -74,7 +74,7 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (error) {
-  $('#message-board').html('sign out failure')
+  $('#message-board').html('Sign Out Failure')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -82,48 +82,31 @@ const signOutFailure = function (error) {
 }
 
 const changePasswordSuccess = function () {
-  $('#message-board').html('change password success')
+  $('#message-board').html('Change Password Success')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
 )
 $('#change-password input[name="passwords[old]"]').val('')
 $('#change-password input[name="passwords[new]"]').val('')
-
 }
 
 const changePasswordFailure = function (error) {
-  $('#message-board').html('change password failure')
+  $('#message-board').html('Change Password Failure')
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
 )
+$('#change-password input[name="passwords[old]"]').val('')
+$('#change-password input[name="passwords[new]"]').val('')
 }
-
-const signUpModal = function () {
-  $('.signUpModal').css('display', 'block')
-}
-
-const signInModal = function () {
-  $('.signInModal').css('display', 'block')
-}
-
-const closeModal = function () {
-  $('.signInModal').css('display', 'none')
-  $('.signUpModal').css('display', 'none')
-}
-
 
 module.exports = {
-  signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure,
-  signUpModal,
-  signInModal,
-  closeModal
+  changePasswordFailure
 }

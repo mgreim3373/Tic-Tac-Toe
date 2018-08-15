@@ -25,9 +25,8 @@ const updateGameBoard = function (event) {
           index: store.index,
           value: store.player
         }
-    }}})}
-
-
+      }}})
+}
 
 const newGame = function () {
   return $.ajax({
@@ -35,8 +34,8 @@ const newGame = function () {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-}
-})
+    }
+  })
 }
 
 const resumeGame = function (id) {
