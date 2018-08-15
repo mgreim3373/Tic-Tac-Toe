@@ -36,6 +36,7 @@ const onResumeGame = function (event) {
   const id = data.id
   api.resumeGame(id)
     .then(ui.resumeGameSuccess)
+    .catch(ui.resumeGameFail)
 }
 
 const addHandlers = () => {

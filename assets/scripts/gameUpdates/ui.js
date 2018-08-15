@@ -69,6 +69,7 @@ const clearBoard = function () {
 }
 
 const resumeGameSuccess = function (data) {
+  $('#resume-game input[name="id"]').val('')
   clearBoard()
   store.game = data.game
   store.board = data.game.cells
@@ -85,6 +86,15 @@ const resumeGameSuccess = function (data) {
   if (store.winner > -1) {
     $('#message-board').empty()
   }
+}
+
+const resumeGameFail = function () {
+  $('#resume-game input[name="id"]').val('')
+  $('#message-board').html('Invalid Input')
+  setTimeout(function () {
+    $('#message-board').empty()
+  }, 1000
+  )
 }
 
 const restoreGameBoard = function (boardArr) {
@@ -123,5 +133,6 @@ module.exports = {
   onNewGameSuccess,
   resumeGameSuccess,
   options,
-  back
+  back,
+  resumeGameFail
 }
