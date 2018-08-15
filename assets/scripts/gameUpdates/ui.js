@@ -45,7 +45,7 @@ const onNewGameSuccess = function (data) {
   store.board = ['', '', '', '', '', '', '', '', '']
   store.currentPlayerId = 0
   clearBoard()
-  $('#message-board').html('Player One\'s Turn')
+  $('#message-board').html('Player One\'s Turn!')
   $('#game-code').html('Current Game Id:' + store.game.id)
   $('#sign-out').addClass('hide')
   $('#resume-game').addClass('hide')
@@ -111,10 +111,10 @@ const whoseTurn = function (boardArr) {
   }
     if (playerOneTotal > playerTwoTotal) {
       store.currentPlayerId = 1
-      $('#message-board').html('Player Two\'s Turn')
+      $('#message-board').html('Player Two\'s Turn!')
     } else {
       store.currentPlayerId = 0
-      $('#message-board').html('Player One\'s Turn')
+      $('#message-board').html('Player One\'s Turn!')
     }
 }
 
