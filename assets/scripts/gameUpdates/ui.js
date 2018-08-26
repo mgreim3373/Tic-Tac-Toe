@@ -4,13 +4,18 @@ const store = require('../store')
 const options = function () {
   $('#get-game-data').removeClass('hide')
   $('#change-password').removeClass('hide')
-  $('#new-game').addClass('hide')
+  $('.new-game').addClass('hide')
   $('#sign-out').addClass('hide')
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
   $('#resume-game').addClass('hide')
   $('#options').addClass('hide')
-  $('#back').removeClass('hide')
+  $('.back').removeClass('hide')
+  $('#page-holder').addClass('hide')
+  $('#page-1').addClass('hide')
+  $('#page-holder2').removeClass('hide')
+  $('#page-2').removeClass('hide')
+
 }
 
 const back = function () {
@@ -18,16 +23,23 @@ const back = function () {
   $('#options').removeClass('hide')
   $('#get-game-data').addClass('hide')
   $('#change-password').addClass('hide')
-  $('#new-game').removeClass('hide')
+  $('.new-game').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
   $('#resume-game').removeClass('hide')
-  $('#back').addClass('hide')
+  $('.back').addClass('hide')
   $('#games-played').empty()
   $('#message-board').empty()
   $('#game-over').empty()
   $('#warning-board').empty()
+  $('#page-holder').removeClass('hide')
+  $('#page-1').removeClass('hide')
+  $('#page-holder2').addClass('hide')
+  $('#page-2').addClass('hide')
+  $('#game-page').addClass('hide')
+
+
 }
 
 const gamesPlayedSuccess = function (data) {
@@ -46,12 +58,15 @@ const onNewGameSuccess = function (data) {
   store.currentPlayerId = 0
   clearBoard()
   $('#message-board').html('Player One\'s Turn!')
-  $('#game-code').html('Current Game Id:' + store.game.id)
+  $('#game-code').html('Current Game Id: ' + store.game.id)
   $('#sign-out').addClass('hide')
   $('#resume-game').addClass('hide')
   $('#options').addClass('hide')
-  $('#back').removeClass('hide')
+  $('.back').removeClass('hide')
   $('#warning-board').empty()
+  $('#page-holder').addClass('hide')
+  $('#page-1').addClass('hide')
+  $('#game-page').removeClass('hide')
 }
 
 const clearBoard = function () {
@@ -74,7 +89,7 @@ const resumeGameSuccess = function (data) {
   store.game = data.game
   store.board = data.game.cells
   restoreGameBoard(store.board)
-  $('#game-code').html('Current Game Id:' + store.game.id)
+  $('#game-code').html('Current Game Id: ' + store.game.id)
   store.checkForWinner(store.board)
   whoseTurn(store.board)
   $('#board').removeClass('hide')
@@ -82,7 +97,10 @@ const resumeGameSuccess = function (data) {
   $('#sign-out').addClass('hide')
   $('#resume-game').addClass('hide')
   $('#options').addClass('hide')
-  $('#back').removeClass('hide')
+  $('.back').removeClass('hide')
+  $('#page-holder').addClass('hide')
+  $('#page-1').addClass('hide')
+  $('#game-page').removeClass('hide')
   if (store.winner > -1) {
     $('#message-board').empty()
   }

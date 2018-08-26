@@ -41,10 +41,10 @@ const onResumeGame = function (event) {
 
 const addHandlers = () => {
   $('#get-game-data').on('submit', onGetGameData)
-  $('#new-game').on('submit', onNewGame)
+  $('.new-game').on('submit', onNewGame)
   $('#resume-game').on('submit', onResumeGame)
   $('#options').on('submit', onOptions)
-  $('#back').on('submit', onBack)
+  $('.back').on('submit', onBack)
 }
 
 module.exports = {

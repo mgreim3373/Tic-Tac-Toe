@@ -1,9 +1,97 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-#body {
-  margin: 0 auto;
-  width: 60%;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+#content-area {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#background {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: .6;
+  background-color: grey;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.modal-content {
+  margin: 10%;
+  padding: 2%;
+  background-color: rgba(73, 124, 97,.4);
+}
+
+
+#image {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
+  opacity: .6;
+  background-image: url('./ocean.jpg')
+}
+
+
+#warning-board {
+  display: flex;
+  background-color: rgba(186, 13, 13, .5);
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 15px;
+}
+
+#game-code {
+  display: flex;
+  background-color: rgba(96, 122, 90, .5);
+  justify-content: center;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 15px;
+}
+
+#message-board {
+  display: flex;
+  font-size: 20px;
+  color: grey;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#game-over {
+  display: flex;
+  font-size: 20px;
+  color: grey;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 #board {
@@ -11,12 +99,172 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   flex-wrap: wrap;
 }
 
+#sign-up-in {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+#sign-up-in-content {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 20%;
+  padding-bottom: 2%;
+  background-color: rgba(176, 200, 252, .2)
+}
+
+#alternate-header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 60px;
+  color: grey;
+  text-align: center;
+}
+
+#sign-in {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#sign-up {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+#page-holder {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+#page-1 {
+  margin: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: rgba(176, 200, 252, .2)
+}
+
+#page-holder2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+#page-2 {
+  margin: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  background-color: rgba(176, 200, 252, .2)
+}
+
+
+
+#get-game-data {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#games-played {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.back {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.new-game {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#resume-game {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#sign-out {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+#change-password {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 #board div {
   display: flex;
   flex: 30%;
   height: 150px;
-  border-style: solid;
+  border: solid 3px grey;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: grey;
 }
+#game-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 20%;
+  margin-right: 20%;
+  justify-content: center;
+}
+
+#board > div:hover {
+  background-color: rgba(193, 149, 83, .3)
+}
+
+#game-page-buttons {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+}
+
+input[type=submit], button {
+      align-self:center;
+      background:transparent;
+      padding:1rem 1rem;
+      margin:0 1rem;
+      transition:all .5s ease;
+      color:#41403E;
+      outline:none;
+      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px;
+      border:solid 2px grey;
+      margin: 1%;
+}
+input[type=submit]:hover, button:hover{
+         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+         background-color: rgba(255, 130, 130, .5)
+      }
 
 .hide {
   display: none;

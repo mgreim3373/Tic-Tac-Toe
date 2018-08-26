@@ -15,12 +15,28 @@ const signUpFailure = function (error) {
 )
 }
 
+const signInModalSuccess = function () {
+$('#modal-signIn').removeClass('hide')
+$('.greyout').removeClass('hide')
+$('#sign-up-in').addClass('hide')
+}
+
+const signUpModalSuccess = function () {
+$('#modal-signUp').removeClass('hide')
+$('.greyout').removeClass('hide')
+$('#sign-up-in').addClass('hide')
+
+}
+
 const signInSuccess = function (data) {
   $('#message-board').html('Sign In Success')
   $('#game-code').empty()
   $('#warning-board').empty()
   $('#games-played').empty()
-  $('#new-game').removeClass('hide')
+  $('#sign-up-in').addClass('hide')
+  $('.new-game').removeClass('hide')
+  $('#page-holder').removeClass('hide')
+  $('#page-1').removeClass('hide')
   $('#sign-out').removeClass('hide')
   $('#sign-in').addClass('hide')
   $('#sign-up').addClass('hide')
@@ -30,6 +46,10 @@ const signInSuccess = function (data) {
   $('#get-game-data').addClass('hide')
   $('#board').addClass('hide')
   $('#game-over').empty()
+  $('#board').addClass('hide')
+  $('#background').addClass('hide')
+  $('.modal').addClass('hide')
+
   setTimeout(function() {
     $('#message-board').empty()
   }, 1000
@@ -55,9 +75,12 @@ const signOutSuccess = function () {
   $('#message-board').html('Sign Out Success')
   $('#change-password').addClass('hide')
   $('#games-played').empty()
-  $('#new-game').addClass('hide')
+  $('.new-game').addClass('hide')
   $('#sign-out').addClass('hide')
+  $('#sign-up-in').removeClass('hide')
   $('#sign-in').removeClass('hide')
+  $('#page-holder').addClass('hide')
+  $('#page-1').addClass('hide')
   $('#sign-up').removeClass('hide')
   $('#get-game-data').addClass('hide')
   $('#board').addClass('hide')
@@ -114,5 +137,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signInModalSuccess,
+  signUpModalSuccess
 }
