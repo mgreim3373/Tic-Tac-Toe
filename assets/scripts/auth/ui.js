@@ -130,6 +130,17 @@ $('#change-password input[name="passwords[old]"]').val('')
 $('#change-password input[name="passwords[new]"]').val('')
 }
 
+const onBackModalSuccess = function () {
+  $('#sign-in input[name="credentials[password]"]').val('')
+  $('#sign-in input[name="credentials[email]"]').val('')
+  $('#sign-up input[name="credentials[password]"]').val('')
+  $('#sign-up input[name="credentials[email]"]').val('')
+  $('#sign-up input[name="credentials[password_confirmation]"]').val('')
+  $("#background").addClass('hide')
+  $(".modal").addClass('hide')
+  $('#sign-up-in').removeClass('hide')
+}
+
 module.exports = {
   signUpFailure,
   signInSuccess,
@@ -139,5 +150,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signInModalSuccess,
-  signUpModalSuccess
+  signUpModalSuccess,
+  onBackModalSuccess
 }

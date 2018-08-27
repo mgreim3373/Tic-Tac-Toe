@@ -55,6 +55,10 @@ const onSignUpModal = function (event) {
   ui.signUpModalSuccess()
 }
 
+const onBackModal = function (event) {
+  event.preventDefault()
+  ui.onBackModalSuccess()
+}
 
 const addHandlers = () => {
   $('#sign-in-modal').on('click', onSignInModal)
@@ -63,6 +67,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('.back-modal').on('click', onBackModal)
 }
 
 module.exports = {
