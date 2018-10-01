@@ -292,3 +292,11 @@ input[type=text],input[type=password],input[type=email], input[type=number]{
 @media (max-height: 900px) {
   #game-page {width: 90%}
 }
+
+@media (max-height: 670px) {
+  #game-board2 {margin-top: 20%;}
+}
+
+@media (max-height: 450px) {
+  #game-board2 {margin-top: 40%;}
+}
