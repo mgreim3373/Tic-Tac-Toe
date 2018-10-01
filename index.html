@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+<body>
+
+  <div id = "content-area">
+    <div id = "background" class = "greyout hide"></div>
+      <div id="image"></div>
+
+        <section id ="warning-board">
+        </section>
+
+        <section id ="game-code">
+        </section>
+
+        <section id ="message-board">
+        </section>
+
+        <section id ="game-over">
+        </section>
+
+        <section class="rotateMessage hide">
+          <h1>Please rotate your phone!</h1>
+        </section>
+
+        <div id='sign-up-in'>
+          <div id='sign-up-in-content'>
+            <div id="alternate-header"> <p>Tic Tac Toe!</p> </div>
+            <button id="sign-in-modal" type="button">Sign In</button>
+            <button id="sign-up-modal" type="button">Sign Up</button>
+        </div>
+        </div>
+
+      <div id= 'modal-signIn' class = 'modal hide'>
+        <div id="modal-signIn-content" class = 'modal-content'>
+        <form id="sign-in" class="border">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign In">
+          <button class="back-modal" type="button">Back</button>
+        </form>
+      </div>
+    </div>
+
+    <div id= 'modal-signUp' class = 'modal hide'>
+      <div id="modal-signUp-content" class = 'modal-content'>
+        <form id="sign-up" class="border">
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign Up">
+          <button class="back-modal" type="button">Back</button>
+        </form>
+        </div>
+      </div>
+
+
+      <div id= "page-holder" class= "hide">
+        <div id= "page-1" class= "hide">
+
+        <form class="new-game" class="border hide">
+          <input type="submit" value="New Game">
+        </form>
+
+      <form id="resume-game" class="border hide">
+        <input type="number" name="id" placeholder="Game Id">
+        <input type="submit" value="Resume Game">
+      </form>
+
+      <form id="options" class="border hide">
+        <input type="submit" value="Options">
+      </form>
+
+      <form id="sign-out" class="border hide">
+        <input type="submit" value="Sign Out">
+      </form>
+    </div>
+  </div>
+      <div id= "page-holder2" class= "hide">
+        <div id= "page-2" class= "hide">
+          <form id="get-game-data" class="border hide">
+            <input type="submit" value="# Games Played">
+          </form>
+          <form id ="games-played"> </form>
+          <form id="change-password" class="border hide">
+            <input type="password" name="passwords[old]" placeholder="Old Password">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change Password">
+          </form>
+          <form class="back" class="border hide">
+            <input type="submit" value="Back">
+          </form>
+        </div>
+      </div>
+
+<div id = "game-page" class = "hide">
+  <div id = "game-board2">
+    <section id="board">
+      <div id = "0"></div>
+      <div id = "1"></div>
+      <div id = "2"></div>
+      <div id = "3"></div>
+      <div id = "4"></div>
+      <div id = "5"></div>
+      <div id = "6"></div>
+      <div id = "7"></div>
+      <div id = "8"></div>
+    </section>
+
+    <div id = game-page-buttons>
+      <form class="back" class="border">
+        <input type="submit" value="Back">
+      </form>
+
+      <form class="new-game" class="border">
+        <input type="submit" value="New Game">
+      </form>
+    </div>
+</div>
+</div>
+
+</div>
+
+
+  </body>
+
+</html>
