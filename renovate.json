@@ -2,5 +2,10 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "prHourlyLimit": 100,
+  "automerge": true,
+  "automergeSchedule": ["after 10pm and before 5:00am"],
+  "schedule": ["after 10pm and before 5:00am"],
+  "platformAutomerge": false,
 }
