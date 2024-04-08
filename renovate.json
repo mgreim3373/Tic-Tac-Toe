@@ -7,5 +7,5 @@
   "automerge": true,
   "automergeSchedule": ["after 10pm and before 5:00am"],
   "schedule": ["after 10pm and before 5:00am"],
-  "platformAutomerge": false,
+  "platformAutomerge": false
 }
