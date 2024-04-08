@@ -1,19 +1,17 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base",
+    ":disableDependencyDashboard"
   ],
+  "timezone": "America/New_York",
   "prHourlyLimit": 100,
-  "automerge": true,
-  "automergeSchedule": ["after 10pm and before 5:00am"],
-  "schedule": ["after 10pm and before 5:00am"],
-  "platformAutomerge": false,
   "packageRules": [
     {
-      "matchPackagePatterns": ["chai"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
-      "automergeSchedule": ["after 1pm and before 5:00am"],
-      "schedule": ["after 1pm and before 5:00am"],
+      "automergeSchedule": ["after 10pm and before 5:00am"],
+      "schedule": ["after 10pm and before 5:00am"],
       "platformAutomerge": false
     }
   ]
