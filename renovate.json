@@ -10,8 +10,6 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
-      "automergeSchedule": ["after 10pm and before 5:00am"],
-      "schedule": ["after 10pm and before 5:00am"],
       "platformAutomerge": false
     }
   ]
